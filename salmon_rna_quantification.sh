@@ -5,6 +5,7 @@
 #SBATCH --output=log_salmon.txt
 
 module load salmon/0.11.3
+#In folder with 12 fastq files, 6 for 3 replicates of Sp-Pdx1 MO (R1 and R2) and 6 for 3 replicates of untreated embryos (R1 and R2)
 for r1_file in paired_Sp_48hpf_*; do
   r2_file="${r1_file/_R1_/_R2_}"
   out="${r1_file/_R1_/_both_}"

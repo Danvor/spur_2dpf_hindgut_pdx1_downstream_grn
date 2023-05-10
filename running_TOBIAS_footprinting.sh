@@ -3,7 +3,7 @@
 #SBATCH --job-name=TOBIAS
 #SBATCH --cpus-per-task=16
 #SBATCH --output=log_tobias.txt
-echo "Usage: run_TOBIAS.sh <prefix of ATACorrect and ScoreBigwig output files> <path to genome> <path to CRM bed file> <prefix of BINDetect output files"
+echo "Usage: running_TOBIAS_footprinting.sh <prefix of ATACorrect and ScoreBigwig output files> <path to genome> <path to CRM bed file> <prefix of BINDetect output files"
 date -R
 module load TOBIAS/latest
 module load bamtools/2.5.1

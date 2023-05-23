@@ -7,8 +7,8 @@ setwd("~/Work/Collaborations/downstream_pdx1")
 rm(list=ls())
 #load the tf/target and the gene1 differential expression targets within blastopore as dataframes
 #make sure the tables imported have appropriate column_names
-targets <- read.delim("./sorted_SpPdx1_affected_WHLs_foldchange_Sp48hpf.txt", header=TRUE) #filtered DE analysis results file, containing Sp-Pdx1 MO differentially expressed gene IDs and their fold change.
-tf_target <- read.delim("./sorted_gut_peak_hindgut_Sp_48hpf_tfWHL_gWHL_TFs_SpPdx_positive.txt", header=TRUE) # interaction file from TF footprinting and filtering to contain only IDs from cells of interest (Sp-Pdx1 co-expressed in Hindgut (1)).
+targets <- read.delim("./sorted_SpPdx1_affected_WHLs_foldchange_Sp48hpf.txt", header=TRUE) #filtered DE analysis results file, containing Sp-Pdx1 MO differentially expressed hindgut gene IDs and their fold change.
+tf_target <- read.delim("./sorted_gut_peak_hindgut_Sp_48hpf_tfWHL_gWHL_TFs_SpPdx_positive.txt", header=TRUE) #interaction file from TF footprinting and filtering to contain only IDs from cells of interest (Sp-Pdx1 co-expressed in Hindgut (1)).
 #get only those genes that are affected by gene1 directly
 tti1 <- subset(tf_target, effector_gene == "WHL22.169409")
 #Get all genes that are affected by direct gene1 targets, and then find genes directly affected by those

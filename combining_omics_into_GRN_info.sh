@@ -17,6 +17,7 @@ annotatePeaks.pl Sp_putative_CRMs_48hpf_fixed.bed ~/Data/Spur_3.1.LinearScaffold
 
 #Adding target genes to human TF and their target sea urchin pCRM.
 paste <(cat Sp_48hpf_gut_hTF_pCRM.txt) <(cut -f 2 Sp_48hpf_gut_hTF_pCRM.txt | while read line; do grep -w $line peakgenes_Sp_putative_CRMs_fixed.txt || echo -e "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA"; done | cut -f 11 | cut -d "." -f 1,2) > Sp_48hpf_gut_hTF_pCRM_tWHL.txt
+
 #Adding sea urchin TF WHL IDs to the file (adding which human homolog is sea urchin homolog).
 paste <(cut -f 1 Sp_48hpf_gut_hTF_pCRM_tWHL.txt | while read line; do grep -w ^$line TF_WHL.txt || echo -e "$line\t$line"; done) <(cat Sp_48hpf_gut_hTF_pCRM_tWHL.txt) > Sp_48hpf_gut_hTF_tfWHL_hTF_pCRM_gWHL.txt
 

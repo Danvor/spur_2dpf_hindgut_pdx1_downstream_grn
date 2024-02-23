@@ -81,7 +81,7 @@ names <- names %>% rename("features.plot" = "gene", "name"="name")
 sp_2dpf_goi_info <- inner_join(sp_2dpf_goi_info, names, by ="features.plot")
 write.table(sp72_goi_info, file= "Sp_2dpf_all_genes", quote= FALSE, sep = "\t")
 
-DotPlot(object = sp_2dpf_integrated_umap, features = "", col.min=0, scale.by = "size", cols = c("white", "red")) + coord_flip() +rotate axis
+DotPlot(object = sp_2dpf_integrated_umap, features = "", col.min=0, scale.by = "size", cols = c("white", "red")) + coord_flip()
 
 #Finding genes expressed in hindgut cells
 sp_2dpf_hindgut_genes <- sp_2dpf_goi_info[sp_2dpf_goi_info$id == "Hindgut (1)" & sp_2dpf_goi_info$avg.exp.scaled >= 0.5,]
@@ -91,16 +91,12 @@ write.table(sp_2dpf_hindgut_genes, file= "sp_2dpf_hindgut_genes.tsv", quote= FAL
 
 #Extracting info from Sp-Pdx1 positive cells
 pdx1 <- WhichCells(sp_2dpf_integrated_umap, idents = "Hindgut (1)", expression = `WHL22.169409` > 0)
-
-
 sp_2dpf_integrated_umap <- AddModuleScore(sp_2dpf_integrated_umap, features = "WHL22.169409", seed = 255, name = "Pdx")
-FeaturePlot(pdx1cells, features = "Pdx1", label = TRUE, repel = TRUE, pt.size = 1, order = TRUE) +
-  scale_colour_gradientn(colors = c("White","Red","DarkGreen","Purple"))
-
 pdx1cells <- subset(sp_2dpf_integrated_umap, idents = "Hindgut (1)", subset = Pdx1 >= 1.5)
 pdx1_all_genes_info <- as.data.frame(AverageExpression(pdx1cells, assays = "RNA", slot = "data", features = all_whl)) %>% rownames_to_column("whl")
 pdx1_all_genes_info$cluster <-  "hindgut cells"
 pdx1_expressed_genes_info <- pdx1_all_genes_info[pdx1_all_genes_info$all >= 0.5,]
+
 write.table(pdx1_expressed_genes_info, file= "sp_2dpf_SpPdx_positive_hindgut_cells_genes.txt", quote= FALSE, sep = "\t")
 
 

@@ -8,26 +8,26 @@ setwd("~/Work/Collaborations/sp_2dpf_scRNAseq_analysis")
 #1
 sp_2dpf_1.data <- Read10X(data.dir = "./sp_2dpf_1")
 sp_2dpf_1_barcodes <- read.delim(file = "./sp_2dpf_1/barcodes.tsv", stringsAsFactors = F, header = F)
-sp_2dpf_1 <- CreateSeuratObject(sp_2dpf_1.data, project = "sp_2dpf_1", min.cells = 3, min.features = 300, meta.data = rownames(sp_2dpf_1_barcodes$v1)) #check values for cells and features
+sp_2dpf_1 <- CreateSeuratObject(sp_2dpf_1.data, project = "sp_2dpf_1", min.cells = 3, min.features = 300, meta.data = rownames(sp_2dpf_1_barcodes$v1)) 
 
 sp_2dpf_1a.data <- Read10X(data.dir = "./sp_2dpf_1a")
 sp_2dpf_1a_barcodes <- read.delim(file = "./sp_2dpf_1a/barcodes.tsv", stringsAsFactors = F, header = F)
-sp_2dpf_1a <- CreateSeuratObject(sp_2dpf_1.data, project = "sp_2dpf_1a", min.cells = 3, min.features = 350, meta.data = rownames(sp_2dpf_1a_barcodes$v1)) #check values for cells and features
+sp_2dpf_1a <- CreateSeuratObject(sp_2dpf_1.data, project = "sp_2dpf_1a", min.cells = 3, min.features = 350, meta.data = rownames(sp_2dpf_1a_barcodes$v1))
 
 
 #2
 sp_2dpf_2.data <- Read10X(data.dir = "./sp_2dpf_2")
 sp_2dpf_2_barcodes <- read.delim(file = "./sp_2dpf_2/barcodes.tsv", stringsAsFactors = F, header = F)
-sp_2dpf_2 <- CreateSeuratObject(sp_2dpf_2.data, project = "sp_2dpf_2", min.cells = 3, min.features = 300, meta.data = rownames(sp_2dpf_2_barcodes$v1)) #check values for cells and features
+sp_2dpf_2 <- CreateSeuratObject(sp_2dpf_2.data, project = "sp_2dpf_2", min.cells = 3, min.features = 300, meta.data = rownames(sp_2dpf_2_barcodes$v1))
 
 sp_2dpf_2a.data <- Read10X(data.dir = "./sp_2dpf_2a")
 sp_2dpf_2a_barcodes <- read.delim(file = "./sp_2dpf_2a/barcodes.tsv", stringsAsFactors = F, header = F)
-sp_2dpf_2a <- CreateSeuratObject(sp_2dpf_2a.data, project = "sp_2dpf_2a", min.cells = 3, min.features = 500, meta.data = rownames(sp_2dpf_2a_barcodes$v1)) #check values for cells and features
+sp_2dpf_2a <- CreateSeuratObject(sp_2dpf_2a.data, project = "sp_2dpf_2a", min.cells = 3, min.features = 500, meta.data = rownames(sp_2dpf_2a_barcodes$v1)) 
 
 #3
 sp_2dpf_3.data <- Read10X(data.dir = "./sp_2dpf_3") #They call genes.tsv file barcode file for some reason, if its not present
 sp_2dpf_3_barcodes <- read.delim(file = "./sp_2dpf_3/barcodes.tsv", stringsAsFactors = F, header = F)
-sp_2dpf_3 <- CreateSeuratObject(sp_2dpf_3.data, project = "sp_2dpf_3", min.cells = 3, min.features = 200, meta.data = rownames(sp_2dpf_3_barcodes$v1)) #check values for cells and features
+sp_2dpf_3 <- CreateSeuratObject(sp_2dpf_3.data, project = "sp_2dpf_3", min.cells = 3, min.features = 200, meta.data = rownames(sp_2dpf_3_barcodes$v1))
 
 
 

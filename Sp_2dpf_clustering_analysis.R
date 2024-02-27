@@ -79,7 +79,7 @@ sp_2dpf_goi_info <- ggplot_build(DotPlot(sp_2dpf_integrated_umap, features = all
 names <- read.delim("./names.tsv")
 names <- names %>% rename("features.plot" = "gene", "name"="name")
 sp_2dpf_goi_info <- inner_join(sp_2dpf_goi_info, names, by ="features.plot")
-write.table(sp72_goi_info, file= "Sp_2dpf_all_genes", quote= FALSE, sep = "\t")
+write.table(sp_2dpf_goi_info, file= "Sp_2dpf_all_genes", quote= FALSE, sep = "\t")
 
 DotPlot(object = sp_2dpf_integrated_umap, features = "", col.min=0, scale.by = "size", cols = c("white", "red")) + coord_flip()
 

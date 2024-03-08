@@ -74,6 +74,28 @@ genes <- read.delim("./names.tsv")
 named_markers <- inner_join(markers, genes, by = "gene")
 write.table(named_markers, file= "Sp_2dpf_marker_genes", quote= FALSE, sep = "\t")
 
+#Rename clusters
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `0` = "undefined")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `4` = "foregut")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `16` = "exocrine pancreas-like precursors")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `2` = "midgut (2)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `1` = "midgut (1)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `17` = "hindgut (2)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `8` = "hindgut (1)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `5` = "skeleton")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `6` = "blastocoelar cells")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `3` = "pigment cells")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `12` = "globular cells")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `10` = "small micromere descendants")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `14` = "myoblasts")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `18` = "neurons")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `11` = "oral ectoderm (2)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `7` = "oral ectoderm (1)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `19` = "aboral ectoderm (2)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `9` = "aboral ectoderm (1)")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `13` = "anterior neuroectoderm")
+sp_2dpf_integrated_umap <- RenameIdents(object = sp_2dpf_integrated_umap, `15` = "ciliary band")
+
 #Extract all genes from dotplot
 sp_2dpf_goi_info <- ggplot_build(DotPlot(sp_2dpf_integrated_umap, features = all))$plot$data
 names <- read.delim("./names.tsv")

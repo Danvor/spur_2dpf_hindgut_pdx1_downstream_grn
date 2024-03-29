@@ -25,7 +25,7 @@ sp_2dpf_2a_barcodes <- read.delim(file = "./sp_2dpf_2a/barcodes.tsv", stringsAsF
 sp_2dpf_2a <- CreateSeuratObject(sp_2dpf_2a.data, project = "sp_2dpf_2a", min.cells = 3, min.features = 500, meta.data = rownames(sp_2dpf_2a_barcodes$v1)) 
 
 #3
-sp_2dpf_3.data <- Read10X(data.dir = "./sp_2dpf_3") #They call genes.tsv file barcode file for some reason, if its not present
+sp_2dpf_3.data <- Read10X(data.dir = "./sp_2dpf_3") 
 sp_2dpf_3_barcodes <- read.delim(file = "./sp_2dpf_3/barcodes.tsv", stringsAsFactors = F, header = F)
 sp_2dpf_3 <- CreateSeuratObject(sp_2dpf_3.data, project = "sp_2dpf_3", min.cells = 3, min.features = 200, meta.data = rownames(sp_2dpf_3_barcodes$v1))
 
